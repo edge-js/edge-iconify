@@ -1,6 +1,8 @@
 Edge Iconify
 > Iconify integration for Edge template engine
 
+![](./edge_iconify.png)
+
 [Iconify](https://icon-sets.iconify.design/) is a great collection of over 100 oepn source icon sets. This package allows you to use all the available icons within edge templates.
 
 ## Not using the online mode
