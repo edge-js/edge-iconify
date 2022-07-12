@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "CommonJS",
     "lib": ["ESNext"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,

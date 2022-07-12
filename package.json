@@ -1,18 +1,16 @@
 {
-  "name": "<%= PACKAGE_NAME %>",
+  "name": "edge-iconify",
   "version": "0.0.0",
-  "description": "<%= PACKAGE_DESCRIPTION %>",
-  "type": "module",
+  "description": "Iconify provider for Edge template engine",
+  "main": "./build/index.js",
   "files": [
-    "src",
-    "index.js"
+    "build/src",
+    "build/index.js",
+    "build/index.d.ts"
   ],
-  "exports": {
-    ".": "./index.js"
-  },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "node --loader=ts-node/esm bin/test.ts",
+    "test": "node --require=@adonisjs/require-ts/build/register bin/test.ts",
     "clean": "del-cli build",
     "compile": "npm run lint && npm run clean && tsc",
     "build": "npm run compile",
@@ -21,26 +19,27 @@
     "prepublishOnly": "npm run build",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
-    "sync-labels": "github-label-sync --labels .github/labels.json <%= PACKAGE_NAME %>"
+    "sync-labels": "github-label-sync --labels .github/labels.json edge-iconify"
   },
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
   "keywords": [],
-  "author": "<%= NPM_AUTHORS %>",
-  "license": "<%= LICENSE %>",
+  "author": "virk",
+  "license": "MIT",
   "devDependencies": {
+    "@adonisjs/require-ts": "^2.0.12",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@iconify-json/mdi": "^1.1.26",
     "@japa/assert": "^1.3.4",
     "@japa/run-failed-tests": "^1.0.7",
     "@japa/runner": "^2.0.9",
     "@japa/spec-reporter": "^1.1.12",
-    "@swc/core": "^1.2.203",
     "@types/node": "^18.0.0",
     "del-cli": "^4.0.1",
-    "ejs": "^3.1.8",
+    "edge.js": "^5.3.7",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^3.0.2",
@@ -49,7 +48,6 @@
     "husky": "^8.0.1",
     "np": "^7.6.1",
     "prettier": "^2.7.1",
-    "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   },
   "eslintConfig": {
@@ -92,5 +90,9 @@
     "tag": "latest",
     "branch": "main",
     "anyBranch": false
+  },
+  "dependencies": {
+    "@iconify/iconify": "^2.2.1",
+    "stringify-attributes": "^2.0.0"
   }
 }
