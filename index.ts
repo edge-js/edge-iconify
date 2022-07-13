@@ -37,8 +37,14 @@ export function edgeIconify(edge: EdgeContract) {
         parser
       )
 
+      /**
+       * For non sequence expression we have to wrap the args inside parenthesis
+       */
+      const openingBrace = parsed.type !== 'SequenceExpression' ? '(' : ''
+      const closingBrace = parsed.type !== 'SequenceExpression' ? ')' : ''
+
       buffer.outputExpression(
-        `state.svg${parser.utils.stringify(parsed)}.value`,
+        `state.svg${openingBrace}${parser.utils.stringify(parsed)}${closingBrace}.value`,
         token.filename,
         token.loc.start.line,
         false
