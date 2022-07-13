@@ -70,4 +70,11 @@ test.group('generateSvg', () => {
       `<svg width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="w-4 h-4">${icons.icons.home.body}</svg>`
     )
   })
+
+  test('do not set width and height when size is set to none', ({ assert }) => {
+    assert.equal(
+      generateSvg('mdi:home', { size: 'none', class: 'w-4 h-4' }),
+      `<svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="w-4 h-4">${icons.icons.home.body}</svg>`
+    )
+  })
 })

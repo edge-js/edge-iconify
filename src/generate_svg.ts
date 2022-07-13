@@ -19,8 +19,19 @@ export function generateSvg(name: string, props?: IconifyIconCustomisations & Re
     throw new Error(`Cannot locate icon "${name}". Make sure you have registered the icon bundle`)
   }
 
-  const { rotate, hFlip, vFlip, width, height, hAlign, vAlign, inline, slice, ...attributes } =
-    props || {}
+  const {
+    rotate,
+    hFlip,
+    vFlip,
+    width,
+    height,
+    hAlign,
+    vAlign,
+    inline,
+    slice,
+    size,
+    ...attributes
+  } = props || {}
 
   const svg = buildIcon(icon, {
     rotate,
@@ -33,6 +44,11 @@ export function generateSvg(name: string, props?: IconifyIconCustomisations & Re
     width,
     height,
   })
+
+  if (size && size === 'none') {
+    svg.attributes.width = false as any
+    svg.attributes.height = false as any
+  }
 
   return `<svg${stringifyAttributes({ ...svg.attributes, ...attributes })}>${svg.body}</svg>`
 }

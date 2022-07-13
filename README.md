@@ -1,4 +1,5 @@
 Edge Iconify
+
 > Iconify integration for Edge template engine
 
 ![](./edge_iconify.png)
@@ -6,14 +7,17 @@ Edge Iconify
 [Iconify](https://icon-sets.iconify.design/) is a great collection of over 100 oepn source icon sets. This package allows you to use all the available icons within edge templates.
 
 ## Not using the online mode
+
 Iconify support various icon loading strategies and the most prominent one on their website is the online API. During the online API, the Iconify will make an HTTP call to their API server and returns the icon data in response.
 
 The online API is not really useful on the backend, since bundle size is not really an issue on the server. Also, many companies restricts the outgoing traffic on their production servers and therefore the requests to Iconify API server will fail.
 
 ## Using icon bundles
+
 Icon bundles on the other hand are pre-bundled icon sets in JSON files. Iconify has an npm package for every single icon set they support and therefore using them is quite easy.
 
 ## Setup
+
 The first step is to install the `edge-iconify` package from the npm registry.
 
 ```sh
@@ -32,6 +36,7 @@ View.use(edgeIconify)
 That's all you need to do and you are ready to render SVG icons within your edge templates.
 
 ## Setup icon bundles
+
 Before you can render icons, you will have to install the icon set you are planning to use. You can also use multiple icon sets in a single projects.
 
 For this example, we will setup the following two icon sets.
@@ -56,6 +61,7 @@ addCollection(tablerIcons)
 ```
 
 ## Rendering icons
+
 Once, you have installed the icon bundles of your choice. You can render the icons as follows.
 
 ```edge
