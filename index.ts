@@ -10,16 +10,26 @@
 import type { EdgeContract } from 'edge.js'
 import type { IconifyIconCustomisations } from '@iconify/iconify'
 
-import { generateSvg } from './src/generate_svg'
+import { SvgGenerator } from './src/svg_generator'
+import { EdgeIconifyOptions } from './src/contracts'
 
 /**
  * Edge plugin to work with Iconify icon sets
  */
-export function edgeIconify(edge: EdgeContract) {
+export function edgeIconify(
+  edge: EdgeContract,
+  _firstRun: boolean,
+  options: EdgeIconifyOptions = {}
+) {
+  const svgGenerator = new SvgGenerator(options)
+
+  /**
+   * Register the `svg` global helper
+   */
   edge.global(
     'svg',
     function (name: string, props?: IconifyIconCustomisations & Record<string, any>) {
-      return edge.GLOBALS.safe(generateSvg(name, props))
+      return edge.GLOBALS.safe(svgGenerator.generate(name, props))
     }
   )
 
