@@ -20,8 +20,5 @@
     "types": ["@types/node"]
   },
   "include": ["./**/*"],
-  "exclude": ["./node_modules", "./build"],
-  "ts-node": {
-    "swc": true
-  }
+  "exclude": ["./node_modules", "./build"]
 }
