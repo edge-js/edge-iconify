@@ -22,6 +22,29 @@ export function edgeIconify(edge: EdgeContract) {
       return edge.GLOBALS.safe(generateSvg(name, props))
     }
   )
+
+  /**
+   * Register the svg tag
+   */
+  edge.registerTag({
+    block: false,
+    seekable: true,
+    tagName: 'svg',
+    compile(parser, buffer, token) {
+      const parsed = parser.utils.transformAst(
+        parser.utils.generateAST(token.properties.jsArg, token.loc, token.filename),
+        token.filename,
+        parser
+      )
+
+      buffer.outputExpression(
+        `state.svg${parser.utils.stringify(parsed)}.value`,
+        token.filename,
+        token.loc.start.line,
+        false
+      )
+    },
+  })
 }
 
 export { addCollection, addIcon } from '@iconify/iconify'
