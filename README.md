@@ -35,6 +35,16 @@ View.use(edgeIconify)
 
 That's all you need to do and you are ready to render SVG icons within your edge templates.
 
+## Options
+You can pass some options when initializing the plugin for applying a default style to your icons.
+
+```ts
+View.use(edgeIconify, {
+  defaultClass: 'text-red hover:text-green', // Class applied to all icons
+  scale: 1.8 // Scale of icons in em
+})
+```
+
 ## Setup icon bundles
 
 Before you can render icons, you will have to install the icon set you are planning to use. You can also use multiple icon sets in a single projects.
