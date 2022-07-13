@@ -94,5 +94,17 @@
   "dependencies": {
     "@iconify/iconify": "^2.2.1",
     "stringify-attributes": "^2.0.0"
-  }
+  },
+  "types": "./build/index.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edge-js/edge-iconify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/edge-js/edge-iconify/issues"
+  },
+  "homepage": "https://github.com/edge-js/edge-iconify#readme"
 }
