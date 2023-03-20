@@ -11,7 +11,7 @@ import type { EdgeContract } from 'edge.js'
 import type { IconifyIconCustomisations } from '@iconify/iconify'
 
 import { SvgGenerator } from './src/svg_generator'
-import { EdgeIconifyOptions } from './src/contracts'
+import { EdgeIconifyOptions } from './src/types'
 
 /**
  * Edge plugin to work with Iconify icon sets

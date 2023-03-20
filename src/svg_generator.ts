@@ -9,7 +9,7 @@
 
 import * as stringifyAttributes from 'stringify-attributes'
 import { getIcon, buildIcon, type IconifyIconCustomisations } from '@iconify/iconify'
-import type { EdgeIconifyOptions } from './contracts'
+import type { EdgeIconifyOptions } from './types'
 
 export class SvgGenerator {
   constructor(private options: EdgeIconifyOptions = {}) {
@@ -25,28 +25,12 @@ export class SvgGenerator {
       throw new Error(`Cannot locate icon "${name}". Make sure you have registered the icon bundle`)
     }
 
-    const {
-      rotate,
-      hFlip,
-      vFlip,
-      width,
-      height,
-      hAlign,
-      vAlign,
-      inline,
-      slice,
-      size,
-      ...attributes
-    } = props || {}
+    const { rotate, hFlip, vFlip, width, height, size, ...attributes } = props || {}
 
     const svg = buildIcon(icon, {
-      rotate,
+      rotate: rotate === undefined && hFlip ? 0 : rotate,
       hFlip,
       vFlip,
-      hAlign,
-      vAlign,
-      inline,
-      slice,
       width: width || this.options.scale + 'em',
       height: height || this.options.scale + 'em',
     })
