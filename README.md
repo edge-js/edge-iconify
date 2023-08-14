@@ -27,10 +27,10 @@ npm i edge-iconify
 Register the plugin with the template engine. AdonisJS users can use the `View` object for the same.
 
 ```ts
-import View from '@ioc:Adonis/Core/View'
+import edge from 'edge.js'
 import { edgeIconify } from 'edge-iconify'
 
-View.use(edgeIconify)
+edge.use(edgeIconify)
 ```
 
 That's all you need to do and you are ready to render SVG icons within your edge templates.
@@ -39,7 +39,7 @@ That's all you need to do and you are ready to render SVG icons within your edge
 You can pass some options when initializing the plugin for applying a default style to your icons.
 
 ```ts
-View.use(edgeIconify, {
+edge.use(edgeIconify, {
   defaultClass: 'text-red hover:text-green', // Class applied to all icons
   scale: 1.8 // Scale of icons in em
 })

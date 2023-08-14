@@ -10,7 +10,7 @@
 import { test } from '@japa/runner'
 import { icons } from '@iconify-json/mdi'
 import { addIcon } from '@iconify/iconify'
-import { SvgGenerator } from '../src/svg_generator'
+import { SvgGenerator } from '../src/svg_generator.js'
 
 addIcon('mdi:home', { ...icons.icons.home, width: 24, height: 24 })
 
