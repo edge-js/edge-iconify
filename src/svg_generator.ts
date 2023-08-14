@@ -60,6 +60,8 @@ export class SvgGenerator {
       attributes.class = className
     }
 
-    return `<svg ${edgeGlobals.html.attrs({ ...svg.attributes, ...attributes }).value}>${svg.body}</svg>`
+    return `<svg ${edgeGlobals.html.attrs({ ...svg.attributes, ...attributes }).value}>${
+      svg.body
+    }</svg>`
   }
 }
