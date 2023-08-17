@@ -31,10 +31,6 @@
     "sync-labels": "github-label-sync --labels .github/labels.json edge-js/edge-iconify",
     "quick:test": "node --enable-source-maps --loader=ts-node/esm bin/test.ts"
   },
-  "publishConfig": {
-    "access": "public",
-    "tag": "latest"
-  },
   "keywords": [],
   "author": "virk",
   "license": "MIT",
@@ -65,12 +61,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "np": {
-    "message": "chore(release): %s",
-    "tag": "latest",
-    "branch": "main",
-    "anyBranch": false
   },
   "dependencies": {
     "@iconify/iconify": "^3.1.1"
@@ -110,5 +100,15 @@
     "format": "esm",
     "dts": true,
     "target": "esnext"
+  },
+  "np": {
+    "message": "chore(release): %s",
+    "tag": "next",
+    "branch": "main",
+    "anyBranch": false
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
   }
 }
