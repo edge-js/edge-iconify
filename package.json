@@ -1,6 +1,6 @@
 {
   "name": "edge-iconify",
-  "version": "2.0.0-1",
+  "version": "2.0.0",
   "description": "Iconify integration for the Edge template engine",
   "type": "module",
   "main": "build/index.js",
