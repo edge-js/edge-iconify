@@ -1,26 +1,23 @@
 /*
  * edge-iconify
  *
- * (c) Harminder Virk
+ * (c) Edge
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-import type { EdgeContract } from 'edge.js'
+import { edgeGlobals } from 'edge.js'
+import type { PluginFn } from 'edge.js/types'
 import type { IconifyIconCustomisations } from '@iconify/iconify'
 
-import { SvgGenerator } from './src/svg_generator'
-import { EdgeIconifyOptions } from './src/types'
+import { SvgGenerator } from './src/svg_generator.js'
+import { EdgeIconifyOptions } from './src/types.js'
 
 /**
  * Edge plugin to work with Iconify icon sets
  */
-export function edgeIconify(
-  edge: EdgeContract,
-  _firstRun: boolean,
-  options: EdgeIconifyOptions = {}
-) {
+export const edgeIconify: PluginFn<EdgeIconifyOptions> = (edge, _, options) => {
   const svgGenerator = new SvgGenerator(options)
 
   /**
@@ -29,7 +26,7 @@ export function edgeIconify(
   edge.global(
     'svg',
     function (name: string, props?: IconifyIconCustomisations & Record<string, any>) {
-      return edge.GLOBALS.safe(svgGenerator.generate(name, props))
+      return edgeGlobals.html.safe(svgGenerator.generate(name, props))
     }
   )
 

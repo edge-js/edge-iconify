@@ -1,19 +1,26 @@
 /*
  * edge-iconify
  *
- * (c) Harminder Virk
+ * (c) Edge
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-import * as stringifyAttributes from 'stringify-attributes'
+import { edgeGlobals } from 'edge.js'
 import { getIcon, buildIcon, type IconifyIconCustomisations } from '@iconify/iconify'
-import type { EdgeIconifyOptions } from './types'
 
+import type { EdgeIconifyOptions } from './types.js'
+
+/**
+ * Svg Generators exposes the API to generate an SVG tag using the
+ * iconify API
+ */
 export class SvgGenerator {
-  constructor(private options: EdgeIconifyOptions = {}) {
-    this.options.scale = this.options.scale || 1
+  #options: EdgeIconifyOptions
+
+  constructor(options: EdgeIconifyOptions = {}) {
+    this.#options = { scale: 1, ...options }
   }
 
   /**
@@ -31,8 +38,8 @@ export class SvgGenerator {
       rotate: rotate === undefined && hFlip ? 0 : rotate,
       hFlip,
       vFlip,
-      width: width || this.options.scale + 'em',
-      height: height || this.options.scale + 'em',
+      width: width || this.#options.scale + 'em',
+      height: height || this.#options.scale + 'em',
     })
 
     if (size && size === 'none') {
@@ -45,7 +52,7 @@ export class SvgGenerator {
      * and the props class
      */
     const propsClass: string[] = (attributes.class || '').split(' ')
-    const defaultClass = (this.options.defaultClass || '').split(' ')
+    const defaultClass = (this.#options.defaultClass || '').split(' ')
 
     const className = [...propsClass, ...defaultClass].filter(Boolean).join(' ')
 
@@ -53,6 +60,8 @@ export class SvgGenerator {
       attributes.class = className
     }
 
-    return `<svg${stringifyAttributes({ ...svg.attributes, ...attributes })}>${svg.body}</svg>`
+    return `<svg ${edgeGlobals.html.attrs({ ...svg.attributes, ...attributes }).value}>${
+      svg.body
+    }</svg>`
   }
 }
