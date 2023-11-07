@@ -8,8 +8,8 @@ Iconify integration for the Edge template engine.
 
 ![](https://cdn.jsdelivr.net/gh/thetutlage/static/sponsorkit/sponsors.png)
 
-[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/edge-js/edge-iconify/test.yml?style=for-the-badge
-[gh-workflow-url]: https://github.com/edge-js/edge-iconify/actions/workflows/test.yml "Github action"
+[gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/edge-js/edge-iconify/checks.yml?style=for-the-badge
+[gh-workflow-url]: https://github.com/edge-js/edge-iconify/actions/workflows/checks.yml "Github action"
 
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: "typescript"
