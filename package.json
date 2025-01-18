@@ -52,7 +52,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@iconify/iconify": "^3.1.1"
+    "iconify-icon": "^2.3.0"
   },
   "peerDependencies": {
     "edge.js": "^6.0.0"

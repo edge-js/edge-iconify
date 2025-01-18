@@ -8,7 +8,7 @@
  */
 
 import { edgeGlobals } from 'edge.js'
-import { getIcon, buildIcon, type IconifyIconCustomisations } from '@iconify/iconify'
+import { getIcon, buildIcon, type IconifyIconCustomisations } from 'iconify-icon'
 
 import type { EdgeIconifyOptions } from './types.js'
 

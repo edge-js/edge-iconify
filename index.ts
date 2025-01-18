@@ -9,7 +9,7 @@
 
 import { edgeGlobals } from 'edge.js'
 import type { PluginFn } from 'edge.js/types'
-import type { IconifyIconCustomisations } from '@iconify/iconify'
+import type { IconifyIconCustomisations } from 'iconify-icon'
 
 import { SvgGenerator } from './src/svg_generator.js'
 import { EdgeIconifyOptions } from './src/types.js'
@@ -60,4 +60,4 @@ export const edgeIconify: PluginFn<EdgeIconifyOptions> = (edge, _, options) => {
   })
 }
 
-export { addCollection, addIcon } from '@iconify/iconify'
+export { addCollection, addIcon } from 'iconify-icon'
